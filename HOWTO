@@ -20,6 +20,8 @@ How to setup
 * reboot SPB from SPA
 	pcs stonith fence SPB
 * vice versa
+* when resource is failed on one controller, fence device will auto reboot the controller to protect data from corruption
+	pcs resource create tank ocf:galaxyio:ZFS pool=tank op monitor interval=30s on-fail="fence"
 
 Misc:
 * check the fence simualtor w/o Pacemaker
